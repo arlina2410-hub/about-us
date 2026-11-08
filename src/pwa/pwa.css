@@ -1,0 +1,43 @@
+/* Update banner */
+.pwa-banner {
+  position: fixed;
+  z-index: 60;
+  top: calc(env(safe-area-inset-top, 0px) + 68px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  width: min(calc(100% - 24px), 460px);
+  padding: 10px 10px 10px 18px;
+  background: #fbf7ec;
+  color: #2e2a25;
+  border: 1.5px solid #2f4a3a;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 #2f4a3a;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+.pwa-banner__text { flex: 1; margin: 0; font-size: 0.95rem; font-weight: 500; }
+.pwa-banner__btn {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1.5px solid #2f4a3a;
+  border-radius: 999px;
+  background: transparent;
+  color: #2f4a3a;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pwa-banner__btn--solid { background: #2f4a3a; color: #f7f1e3; }
+
+/* Install sheet */
+.install { padding: 4px 20px 24px; font-family: 'DM Sans', system-ui, sans-serif; line-height: 1.55; }
+.install p { margin: 0 0 14px; }
+.install__steps { margin: 0 0 8px; padding-left: 20px; }
+.install__steps li { margin-bottom: 10px; }
+.install__btn { width: 100%; min-height: 48px; font-size: 1rem; }
+.install__done { font-weight: 600; }
+.install__note { min-height: 1.3em; margin: 10px 0 0; font-size: 0.9rem; opacity: 0.75; }

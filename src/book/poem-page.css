@@ -1,0 +1,90 @@
+/* Poem page typography. Everything the page layout depends on lives here. */
+.pp {
+  --pp-base: 17px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  font-size: calc(var(--pp-base) * var(--pp-scale, 1));
+  line-height: 1.7;
+  font-kerning: normal;
+}
+
+.pp__head {
+  flex: none;
+  text-align: center;
+  padding-bottom: 1.4em;
+}
+.pp__title {
+  margin: 0;
+  font-family: 'Tanker', 'Newsreader', Georgia, serif;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: 1.08;
+  color: var(--pp-title, inherit);
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.pp__meta {
+  margin: 0.7em 0 0;
+  font-size: 0.82em;
+  font-style: italic;
+  line-height: 1.4;
+  opacity: 0.65;
+}
+.pp__rule {
+  display: block;
+  width: 2.5em;
+  height: 1px;
+  margin: 1.1em auto 0;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+/* Small title repeated on continuation pages. Always one line, so its height never changes. */
+.pp__running {
+  flex: none;
+  margin: 0 0 1.2em;
+  font-size: 0.82em;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.55;
+}
+
+.pp__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.pp--centered .pp__body {
+  justify-content: center;
+}
+
+.pp__stanza {
+  margin: 0 0 1.35em;
+}
+.pp__stanza:last-child {
+  margin-bottom: 0;
+}
+/* Hanging indent: a long line that wraps keeps its second row indented, as in printed poetry. */
+.pp__line {
+  display: block;
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  overflow-wrap: anywhere;
+}
+
+/* Off-screen copy used only to measure text. */
+.pp-measure {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

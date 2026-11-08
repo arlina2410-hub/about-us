@@ -1,0 +1,230 @@
+/* Test Page Styles (Stage 1) */
+
+.test-page-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-4) var(--space-16);
+}
+
+.brand-header {
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.brand-title {
+  font-family: var(--font-brand);
+  font-size: var(--font-size-5xl);
+  letter-spacing: 0.05em;
+  color: var(--color-forest);
+  margin-bottom: var(--space-2);
+}
+
+.brand-subtitle {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.test-section {
+  margin-bottom: var(--space-12);
+}
+
+.section-title {
+  font-family: var(--font-brand);
+  font-size: var(--font-size-2xl);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-4);
+  letter-spacing: 0.02em;
+}
+
+.section-description {
+  font-family: var(--font-ui);
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-6);
+}
+
+/* 1. Palette Grid */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: var(--space-4);
+}
+
+.swatch-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.swatch-color {
+  height: 64px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(46, 42, 37, 0.12);
+  margin-bottom: var(--space-2);
+}
+
+.swatch-name {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.swatch-hex {
+  font-family: monospace;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* 2. Fonts Comparison */
+.font-specimens {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.font-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.font-card-label {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.specimen-tanker {
+  font-family: var(--font-brand);
+  font-size: var(--font-size-3xl);
+  color: var(--color-forest);
+  line-height: var(--line-height-tight);
+}
+
+.specimen-newsreader {
+  font-family: var(--font-poem);
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-poem);
+  color: var(--color-charcoal);
+  font-style: italic;
+}
+
+.specimen-dm-sans {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sample-ui-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.pill-badge {
+  display: inline-block;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  background-color: var(--color-parchment);
+  color: var(--color-charcoal);
+}
+
+.pill-badge.featured {
+  background-color: var(--color-peach);
+  color: var(--color-charcoal);
+}
+
+/* 3. Poem List */
+.poem-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.poem-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.poem-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-3);
+}
+
+.poem-title {
+  font-family: var(--font-brand);
+  font-size: var(--font-size-2xl);
+  color: var(--color-charcoal);
+  letter-spacing: 0.02em;
+}
+
+.poem-meta {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.poem-tags {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.poem-body {
+  font-family: var(--font-poem);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-poem);
+  color: var(--color-charcoal);
+}
+
+.poem-stanza {
+  margin-bottom: var(--space-4);
+}
+
+.poem-stanza:last-child {
+  margin-bottom: 0;
+}
+
+.poem-line {
+  display: block;
+}
+
+.stanza-count-badge {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-xs);
+  color: var(--color-olive);
+  font-weight: 500;
+}

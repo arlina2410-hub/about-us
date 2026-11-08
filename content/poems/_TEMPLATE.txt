@@ -1,0 +1,24 @@
+# HOW TO USE THIS FILE
+# 1. Copy this file and give the copy a new name, for example:  rain-on-the-window.txt
+#    (only lowercase letters, numbers and hyphens, and it must end in .txt)
+# 2. Change the settings below, then write your poem under the three dashes.
+# 3. Leave one empty line between stanzas. Every line you write stays on its own line.
+# Lines that start with # are notes and are ignored. Files that start with _ are ignored too.
+#
+# SETTINGS (only title and date are required):
+#   title:     the name of the poem
+#   date:      YEAR-MONTH-DAY, for example 2026-11-02
+#   category:  optional, one word or phrase, for example Love
+#   tags:      optional, separated by commas, for example rain, memories
+#   featured:  optional, yes or no. The newest poem marked yes is shown on the home screen.
+title: A Beautiful Memory
+date: 2026-11-02
+category: Love
+tags: memories, love
+featured: no
+---
+The first line of my poem,
+The second line of my poem.
+
+Another stanza begins here,
+And continues naturally.

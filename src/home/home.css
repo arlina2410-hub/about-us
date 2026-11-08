@@ -1,0 +1,254 @@
+/* ---------- Home screen ---------- */
+.home {
+  --forest: #2f4a3a;
+  --olive: #6b7a45;
+  --charcoal: #2e2a25;
+  min-height: 100vh;
+  background: #f7f1e3;
+  color: var(--charcoal);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow-x: clip;
+}
+.home a:focus-visible,
+.home button:focus-visible,
+.home input:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 3px;
+}
+.home__wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.home__empty { margin: 48px 0; text-align: center; font: italic 1.2rem 'Newsreader', Georgia, serif; }
+.home__foot {
+  margin-top: 56px;
+  padding: 24px 16px 32px;
+  text-align: center;
+  font: italic 0.95rem 'Newsreader', Georgia, serif;
+  opacity: 0.65;
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Header: the one place a soft glass effect helps, because content scrolls under it. */
+.hbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: calc(env(safe-area-inset-top) + 8px) 12px 8px;
+  background: rgba(247, 241, 227, 0.82);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(47, 74, 58, 0.12);
+}
+.hbar > :last-child { justify-self: end; }
+.hbar__brand {
+  font-family: 'Tanker', serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  color: var(--forest);
+  text-decoration: none;
+}
+.hbar__btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--forest);
+  cursor: pointer;
+}
+.hbar__btn:hover { background: rgba(169, 184, 154, 0.3); }
+
+/* Shared bits */
+.section-title { margin: 0 0 14px; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
+.block { margin-top: 36px; scroll-margin-top: 72px; }
+.block__head { display: flex; align-items: baseline; justify-content: space-between; }
+.block__head .section-title { margin-bottom: 14px; }
+.textlink {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 4px;
+  border: 0; background: none; color: var(--forest); font: inherit; font-weight: 600; cursor: pointer;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 24px;
+  border: 1.5px solid var(--forest); border-radius: 999px;
+  font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn--solid { background: var(--forest); color: #f7f1e3; box-shadow: 3px 3px 0 rgba(47, 74, 58, 0.28); }
+.btn--outline { background: #fbf7ec; color: var(--forest); box-shadow: 3px 3px 0 var(--forest); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(47, 74, 58, 0.4); }
+
+/* Card colours, chosen per category */
+[data-tone='0'] { --tone: #c9d3bc; }
+[data-tone='1'] { --tone: #eadfc8; }
+[data-tone='2'] { --tone: #f1d3c0; }
+[data-tone='3'] { --tone: #cfd6a8; }
+
+/* Welcome + featured */
+.hero { display: grid; gap: 8px; padding-top: 20px; }
+.welcome { position: relative; padding: 12px 0 4px; }
+.welcome__sprig {
+  position: absolute; top: -6px; right: -10px; width: 120px; height: auto;
+  color: var(--olive); opacity: 0.16; pointer-events: none; transform: rotate(14deg);
+}
+.welcome__title {
+  position: relative;
+  margin: 0;
+  font-family: 'Tanker', serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 13vw, 5.2rem);
+  line-height: 0.95;
+  color: var(--forest);
+}
+.welcome__ask { position: relative; margin: 10px 0 0; font-size: 1.15rem; opacity: 0.8; }
+.welcome__text { position: relative; max-width: 34rem; margin: 14px 0 0; font: 1.12rem/1.6 'Newsreader', Georgia, serif; }
+.welcome__actions { position: relative; display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+
+.featured {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+  padding: 22px;
+  background: var(--tone, #c9d3bc);
+  border: 1.5px solid var(--forest);
+  border-radius: 24px;
+  box-shadow: 5px 5px 0 var(--forest);
+}
+.featured__title { margin: 0; font: 400 clamp(1.9rem, 7vw, 2.5rem)/1.02 'Tanker', serif; color: var(--forest); }
+.featured__meta { margin: 6px 0 0; font: italic 0.95rem 'Newsreader', Georgia, serif; opacity: 0.75; }
+.featured__text {
+  margin: 14px 0 0; padding: 0 0 0 14px;
+  border-left: 2px solid rgba(47, 74, 58, 0.35);
+  font: italic 1.15rem/1.6 'Newsreader', Georgia, serif;
+}
+.featured__text span { display: block; }
+.featured > .btn { align-self: flex-start; }
+
+/* New poems row */
+.latest {
+  display: flex; gap: 14px; margin: 0 -16px; padding: 4px 16px 16px; list-style: none;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.latest::-webkit-scrollbar { display: none; }
+.latest li { flex: 0 0 auto; scroll-snap-align: start; }
+.pcard {
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 6px;
+  position: relative; box-sizing: border-box; width: 158px; height: 206px; padding: 14px;
+  background: var(--tone, #c9d3bc);
+  border: 1.5px solid var(--forest); border-radius: 20px; box-shadow: 3px 3px 0 var(--forest);
+  color: var(--charcoal); text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.pcard:hover { transform: translateY(-3px); }
+.pcard__sprig { position: absolute; top: 14px; left: 14px; width: 26px; height: auto; color: var(--forest); opacity: 0.7; }
+.pcard__title {
+  font: 400 1.45rem/1.05 'Tanker', serif; color: var(--forest);
+  display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.pcard__meta { font: italic 0.85rem 'Newsreader', Georgia, serif; opacity: 0.75; }
+
+/* The 3D book */
+.bookhero {
+  display: grid; gap: 8px; align-items: center; margin-top: 44px; padding: 28px 22px 32px;
+  background: #eadfc8; border: 1.5px solid rgba(47, 74, 58, 0.3); border-radius: 28px;
+  scroll-margin-top: 72px;
+}
+.bookhero__link { display: block; justify-self: center; text-decoration: none; }
+.bookhero__scene { --bw: 220px; --bh: 315px; --bt: 40px; position: relative; padding: 18px 28px 34px; perspective: 1100px; }
+.bookhero__book {
+  position: relative; width: var(--bw); height: var(--bh);
+  transform-style: preserve-3d; transform: rotateY(24deg) rotateX(3deg);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.bookhero__link:hover .bookhero__book { transform: rotateY(10deg) rotateX(2deg); }
+.bookhero__front {
+  position: absolute; inset: 0; overflow: hidden; border-radius: 2px 10px 10px 2px;
+  transform: translateZ(calc(var(--bt) / 2));
+}
+.bookhero__back {
+  position: absolute; inset: 0; border-radius: 2px 10px 10px 2px; background: #223a2d;
+  transform: translateZ(calc(var(--bt) / -2)) rotateY(180deg);
+}
+.bookhero__spine {
+  position: absolute; top: 0; left: calc(var(--bt) / -2); width: var(--bt); height: 100%;
+  display: grid; place-items: center;
+  background: linear-gradient(90deg, #223a2d, #2f4a3a 45%, #223a2d);
+  transform: rotateY(-90deg);
+}
+.bookhero__spine span {
+  writing-mode: vertical-rl; font: 400 1.15rem 'Tanker', serif; letter-spacing: 0.06em; color: #eadfc8; opacity: 0.9;
+}
+.bookhero__pages {
+  position: absolute; top: 4px; height: calc(100% - 8px);
+  width: calc(var(--bt) - 8px); left: calc(100% - (var(--bt) - 8px) / 2);
+  background: repeating-linear-gradient(90deg, #f6efdc 0 2px, #ddd2b8 2px 3px);
+  transform: rotateY(90deg);
+}
+.bookhero__shadow {
+  position: absolute; left: 14%; right: 0; bottom: 8px; height: 26px;
+  background: radial-gradient(ellipse at center, rgba(46, 42, 37, 0.38), transparent 70%); filter: blur(5px);
+}
+.bookhero__copy { text-align: center; }
+.bookhero__copy p { max-width: 28rem; margin: 0 auto 20px; font: 1.12rem/1.6 'Newsreader', Georgia, serif; }
+
+/* Browse */
+.browse { margin-top: 48px; scroll-margin-top: 72px; }
+.search {
+  display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px;
+  background: #fbf7ec; border: 1.5px solid var(--forest); border-radius: 999px; color: var(--forest);
+}
+.search input { flex: 1; min-width: 0; border: 0; background: none; font: inherit; font-size: 1rem; color: var(--charcoal); }
+.search input:focus-visible { outline: none; }
+.search:focus-within { outline: 2px solid var(--olive); outline-offset: 3px; }
+.chips { display: flex; gap: 8px; margin: 14px -16px 0; padding: 2px 16px 8px; overflow-x: auto; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: 0 0 auto; min-height: 40px; padding: 0 14px;
+  background: transparent; border: 1.5px solid rgba(47, 74, 58, 0.35); border-radius: 999px;
+  color: var(--forest); font: inherit; font-size: 0.92rem; cursor: pointer;
+}
+.chip[aria-pressed='true'] { background: var(--forest); border-color: var(--forest); color: #f7f1e3; }
+.chip__count { opacity: 0.6; font-variant-numeric: tabular-nums; }
+.browse__count { margin: 10px 2px 8px; font-size: 0.9rem; opacity: 0.7; }
+.browse__empty { margin: 24px 0; font: italic 1.1rem 'Newsreader', Georgia, serif; }
+.rows { margin: 0; padding: 0; list-style: none; }
+.row {
+  display: grid; gap: 2px; padding: 14px 4px; color: inherit; text-decoration: none;
+  border-top: 1px solid rgba(47, 74, 58, 0.15);
+}
+.rows li:last-child .row { border-bottom: 1px solid rgba(47, 74, 58, 0.15); }
+.row:hover .row__title { text-decoration: underline; text-underline-offset: 3px; }
+.row__title { font: 1.2rem 'Newsreader', Georgia, serif; font-weight: 600; }
+.row__first { font: italic 1rem 'Newsreader', Georgia, serif; opacity: 0.75; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row__meta { font-size: 0.82rem; opacity: 0.6; }
+.browse__more { margin: 20px auto 0; display: flex; }
+
+/* Wider screens */
+@media (min-width: 900px) {
+  .hero { grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; padding-top: 40px; }
+  .hero .block { margin-top: 0; }
+  .welcome__sprig { right: 20%; width: 170px; }
+  .bookhero { grid-template-columns: auto 1fr; gap: 56px; padding: 40px 56px; }
+  .bookhero__copy { text-align: left; }
+  .bookhero__copy p { margin-left: 0; }
+  .bookhero__scene { transform: scale(1.15); transform-origin: center; }
+  .latest { margin-inline: 0; padding-inline: 0; flex-wrap: wrap; overflow: visible; }
+  .pcard { width: 176px; height: 226px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bookhero__book, .btn, .pcard { transition: none; }
+}
+
+/* ---------- Added in Stage 5: continue reading, saved poems ---------- */
+.welcome__resume { position: relative; margin: 14px 0 0; font: italic 1rem 'Newsreader', Georgia, serif; opacity: 0.75; }
+.chip--saved { display: inline-flex; align-items: center; gap: 6px; }
+.chip--saved svg { width: 16px; height: 16px; }
+.row__saved { display: inline-flex; vertical-align: -2px; margin-left: 8px; color: var(--olive); }
+.row__saved svg { width: 16px; height: 16px; }

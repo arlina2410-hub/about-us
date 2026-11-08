@@ -1,0 +1,9 @@
+Your poems live in this folder, one .txt file per poem.
+
+To add a poem: copy _TEMPLATE.txt, rename the copy, write your poem, save, and publish.
+Step-by-step instructions with pictures of every click: docs/ADD-POEMS.md
+
+The six poems already here (threshold, salt-and-linen, the-olive-grove, reading-in-the-late-hour,
+cartography-of-ordinary-days, twelve-seasons-of-us) are DEMO poems. Delete them when you add your own.
+IMPORTANT: once a poem is published, do not rename its file. The file name is the poem's identity, and
+readers' bookmarks and "continue reading" place are tied to it.

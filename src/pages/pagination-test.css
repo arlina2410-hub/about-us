@@ -1,0 +1,33 @@
+.pt {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #2e2a25;
+}
+.pt h1 { margin: 0 0 4px; font-family: 'Tanker', serif; font-weight: 400; }
+.pt__controls { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: flex-end; margin: 16px 0; }
+.pt__controls label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+.pt__check { flex-direction: row !important; align-items: center; gap: 8px !important; }
+.pt__status { margin: 8px 0 12px; font-size: 14px; }
+.pt__status--bad { color: #9b2c1f; font-weight: 600; }
+.pt__counts { margin: 0 0 24px; padding-left: 18px; font-size: 13px; columns: 2; }
+.pt__grid { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+
+/* Text area = exactly width x height; padding is the page margin around it. */
+.pt__page {
+  box-sizing: content-box;
+  position: relative;
+  margin: 0;
+  padding: 28px 26px 48px;
+  background: #fbf7ec;
+  color: #2e2a25;
+  border: 1px solid #eadfc8;
+  border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(46, 42, 37, 0.12);
+}
+.pt__page.is-clipped { outline: 2px solid #c0392b; }
+.pt__page figcaption {
+  position: absolute; left: 0; right: 0; bottom: 16px;
+  text-align: center; font-size: 12px; opacity: 0.6;
+}

@@ -1,0 +1,124 @@
+@import './tokens.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/700.css';
+@import '@fontsource/newsreader/400.css';
+@import '@fontsource/newsreader/400-italic.css';
+@import '@fontsource/newsreader/600.css';
+
+/* Tanker font: self-hosted in src/assets/fonts/ */
+@font-face {
+  font-family: 'Tanker';
+  src: url('../assets/fonts/Tanker-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Tanker-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Reset & Defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-ui);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  overflow-x: hidden;
+}
+
+/* Typography defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-brand);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--color-charcoal);
+  line-height: var(--line-height-tight);
+}
+
+p {
+  margin-bottom: var(--space-4);
+}
+
+a {
+  color: var(--color-forest);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-olive);
+}
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: 1px solid var(--border-default);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-4);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+button:hover {
+  background: var(--bg-surface-alt);
+  border-color: var(--border-accent);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Accessibility: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Touch and selection polish ---------- */
+/* No grey/blue flash when tapping buttons and links on phones */
+*, *::before, *::after {
+  -webkit-tap-highlight-color: transparent;
+}
+/* Faster, cleaner taps: no double-tap-to-zoom delay on controls */
+a, button, input, select, textarea, label, summary, [role='button'], [role='radio'] {
+  touch-action: manipulation;
+}
+/* Controls are not text: a long press or double click must not highlight them in blue */
+button, [role='button'], [role='radio'], .btn, .chip, .pcard, .hbar__btn, .reader__btn, .sheet__item, .theme {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+/* Selected text uses the brand olive instead of the browser's blue */
+::selection {
+  background: rgba(107, 122, 69, 0.28);
+  color: inherit;
+}
+/* Keyboard users keep their focus ring (accessibility); mouse and touch never draw one */
+:focus:not(:focus-visible) {
+  outline: none;
+}
